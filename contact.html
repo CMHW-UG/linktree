@@ -36,30 +36,33 @@
     .deco span.dot { width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.45); display:inline-block; font-size:0; }
     @keyframes floatUp { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
     .hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
-    .logo-circle {
-  width: 96px;
-  height: 96px;
+    
+  /* ===== IITK LOGO CIRCLE ===== */
+
+.logo-circle {
+  width: 150px;
+  height: 150px;
+
   border-radius: 50%;
-  background: white;
-  border: 3px solid rgba(255,255,255,0.5);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  background: #fff;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   overflow: hidden;
-  margin: 0 auto 16px auto;
+  margin: 0 auto 18px auto;
 }
 
+/* LOGO IMAGE */
 .logo-circle img {
-  width: 82%;
-  height: 82%;
+  width: 100%;
+  height: 100%;
+
   object-fit: contain;
-  object-position: center center;
+  object-position: center;
 
   display: block;
-  margin: auto;
 }
     .iit-badge {
       background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.32);
