@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CMHW — Links</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pm: #6b35b8; --pl: #9b6dd6;
+      --ppale: #f0ebfa; --pbg: #f5f2fc; --border: #e2d9f5;
+      --text: #1a1030; --muted: #7a6a96;
+    }
+    body { background: var(--pbg); font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; }
+    .hero {
+      width: 100%;
+      background: linear-gradient(140deg, #3d1870 0%, #6b2fb5 45%, #8b45d0 100%);
+      display: flex; flex-direction: column; align-items: center;
+      padding: 48px 24px 36px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -40px; left: -40px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+    .deco { position: absolute; inset: 0; pointer-events: none; }
+    .deco span { position: absolute; color: #ffb0c8; opacity: 0.6; animation: floatUp 4s ease-in-out infinite; }
+    .deco span.dot { width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.45); display:inline-block; font-size:0; }
+    @keyframes floatUp { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+    .hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .logo-circle {
+      width: 88px; height: 88px; border-radius: 50%; background: white;
+      border: 3px solid rgba(255,255,255,0.5);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; overflow: hidden; font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem; color: var(--pm);
+      animation: pop .6s cubic-bezier(.175,.885,.32,1.275) both;
+    }
+    .iit-badge {
+      background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.32);
+      color: rgba(255,255,255,0.92); font-size: .61rem; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      padding: 3px 14px; border-radius: 99px; margin-bottom: 11px;
+      animation: fadeUp .5s .1s both;
+    }
+    .hero-title {
+      font-family: 'DM Serif Display', serif; font-size: 3rem; color: white;
+      letter-spacing: -1px; line-height: 1; text-shadow: 0 2px 20px rgba(0,0,0,0.18);
+      animation: fadeUp .5s .15s both;
+    }
+    .hero-sub {
+      font-size: .82rem; color: rgba(255,255,255,.78); margin-top: 8px;
+      font-weight: 400; letter-spacing: .02em; animation: fadeUp .5s .2s both;
+    }
+    .hero-tag {
+      margin-top: 14px;
+      background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.95); font-size: .65rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 5px 18px; border-radius: 99px; animation: fadeUp .5s .25s both;
+    }
+    .quote-strip {
+      width: 100%; background: rgba(0,0,0,0.2); backdrop-filter: blur(4px);
+      color: rgba(255,255,255,.85); text-align: center;
+      padding: 12px 24px; font-size: .78rem; font-style: italic; letter-spacing: .03em;
+    }
+    .main { max-width: 580px; margin: 0 auto; padding: 28px 20px 80px; }
+    .section-label {
+      font-size: .62rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--pm); display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px; margin-top: 24px; animation: fadeUp .4s both;
+    }
+    .section-label::after { content:''; flex:1; height:1.5px; background:linear-gradient(90deg,var(--border),transparent); }
+    .links { display: flex; flex-direction: column; gap: 10px; }
+    .link-item {
+      display: flex; align-items: center; gap: 14px;
+      background: white; border: 1.5px solid var(--border); border-radius: 16px;
+      padding: 16px 18px; text-decoration: none; color: var(--text);
+      box-shadow: 0 2px 14px rgba(107,53,184,.08);
+      transition: all .22s ease; animation: fadeUp .4s both;
+      position: relative; overflow: hidden;
+    }
+    .link-item::before {
+      content:''; position:absolute; left:0; top:0; bottom:0; width:4px;
+      background: linear-gradient(180deg, var(--pm), var(--pl));
+      transform: scaleY(0); transition: transform .22s ease; border-radius: 0 2px 2px 0;
+    }
+    .link-item:hover { transform:translateY(-2px); border-color:rgba(107,53,184,.35); box-shadow:0 8px 28px rgba(107,53,184,.14); }
+    .link-item:hover::before { transform:scaleY(1); }
+    .link-item:hover .arrow { transform:translateX(5px); color:var(--pm); }
+    .icon-box {
+      width:44px; height:44px; border-radius:12px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; font-size:1.2rem;
+      background:var(--ppale); border:1.5px solid var(--border);
+    }
+    .ltext { flex:1; }
+    .ltitle { font-weight:600; font-size:.9rem; }
+    .ldesc  { font-size:.74rem; color:var(--muted); margin-top:2px; }
+    .arrow { color:var(--pl); font-size:.9rem; transition:all .22s ease; flex-shrink:0; }
+    .footer { margin-top:44px; text-align:center; font-size:.7rem; color:#b0a0c8; line-height:1.8; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes pop    { from{opacity:0;transform:scale(.75)} to{opacity:1;transform:scale(1)} }
+  </style>
+</head>
+<body>
+<div class="hero">
+  <div class="deco">
+    <span style="top:14%;left:12%;font-size:.9rem;animation-delay:.3s">♥</span>
+    <span style="top:22%;left:28%;animation-delay:1.2s" class="dot"></span>
+    <span style="top:8%;left:42%;font-size:.7rem;animation-delay:.7s">♥</span>
+    <span style="top:18%;right:14%;font-size:.85rem;animation-delay:.5s">♥</span>
+    <span style="top:28%;right:30%;animation-delay:1.6s" class="dot"></span>
+    <span style="top:10%;right:45%;font-size:.65rem;animation-delay:1s">♥</span>
+    <span style="top:35%;left:8%;animation-delay:2s" class="dot"></span>
+    <span style="top:38%;right:10%;font-size:.7rem;animation-delay:1.4s">♥</span>
+  </div>
+  <div class="hero-inner">
+    <div class="logo-circle">C</div>
+    <div class="iit-badge">IIT Kanpur</div>
+    <div class="hero-title">CMHW</div>
+    <div class="hero-sub">Center for Mental Health and Wellbeing</div>
+    <div class="hero-tag">🔗 Quick Links</div>
+  </div>
+</div>
+<div class="quote-strip">"One place for everything CMHW — reach out, refer, or book a session."</div>
+<div class="main">
+  <div class="section-label" style="animation-delay:.28s">Explore</div>
+  <div class="links">
+    <a class="link-item" href="https://cmhw-ug.github.io/linktree/contact.html" target="_blank" style="animation-delay:.30s">
+      <div class="icon-box">📞</div>
+      <div class="ltext">
+        <div class="ltitle">Contact Us</div>
+        <div class="ldesc">Reach the CMHW team directly</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-item" href="https://cmhw-ug.github.io/linktree/referral.html" target="_blank" style="animation-delay:.34s">
+      <div class="icon-box">🔗</div>
+      <div class="ltext">
+        <div class="ltitle">Referral Appointment</div>
+        <div class="ldesc">Refer anyone you care about</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link-item" href="https://cmhw-ug.github.io/linktree/sessions.html" target="_blank" style="animation-delay:.38s">
+      <div class="icon-box">🗓️</div>
+      <div class="ltext">
+        <div class="ltitle">Book a Session</div>
+        <div class="ldesc">Schedule time with a counsellor</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+  <div class="footer">
+    Made with ♥ for the IIT Kanpur community<br>
+    Indian Institute of Technology Kanpur · © 2025 CMHW
+  </div>
+</div>
+</body>
+</html>
